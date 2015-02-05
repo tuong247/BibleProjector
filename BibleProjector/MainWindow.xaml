@@ -1,0 +1,43 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ViewModels="clr-namespace:BibleProjector.Model" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="BibleProjector.MainWindow"
+        Title="Bible Projector" Height="Auto"  Width="Auto"
+        WindowState="Normal" >
+    <Window.Resources>
+        <ItemsPanelTemplate x:Key="ItemsPanelTemplate1">
+            <VirtualizingStackPanel IsItemsHost="True"/>
+        </ItemsPanelTemplate>
+    </Window.Resources>
+    <Window.DataContext>
+        <ViewModels:MainWindowViewModel />
+    </Window.DataContext>
+    <Grid Margin="0,0,43.6,-0.4" HorizontalAlignment="Left" Width="764">
+        <Button Content="Hiển thị" HorizontalAlignment="Left" Margin="333,34,0,0" VerticalAlignment="Top" Width="73" Click="btnShow_Click" Height="26"/>
+        <Button Content="Ẩn" HorizontalAlignment="Left" Margin="333,72,0,0" VerticalAlignment="Top" Width="73" Click="btnHide_Click" Height="26"/>
+        <ComboBox x:Name="BibleBooksComboBox"  ItemsSource="{Binding Bibles, Mode=OneWay}" SelectedItem="{Binding SelectedBible}" DisplayMemberPath="Book"   SelectedValuePath="Name"  HorizontalAlignment="Left" Margin="73,38,0,0" VerticalAlignment="Top" Width="207" Height="22"/>
+        <Label Content="Sách" HorizontalAlignment="Left" Margin="19,35,0,0" VerticalAlignment="Top" Height="26" Width="35"/>
+        <ComboBox x:Name="cboDoan" HorizontalAlignment="Left" ItemsSource="{Binding AvailableChapter, Mode=OneWay}" SelectedItem="{Binding SelectedChapter}"  DisplayMemberPath="ChapterId"   SelectedValuePath="ChapterId"    Margin="73,69,0,0" VerticalAlignment="Top" Width="207" Height="22"/>
+        <Label Content="Đoạn" HorizontalAlignment="Left" Margin="19,66,0,0" VerticalAlignment="Top" Height="26" Width="38"/>
+        <Label Content="Câu" HorizontalAlignment="Left" Margin="22,151,0,0" VerticalAlignment="Top" Height="26" Width="30"/>
+        <ListView x:Name="caugoc" HorizontalAlignment="Left" ItemsSource="{Binding AvailableVerses, Mode=OneWay}"  Margin="20,117,0,19.6" Width="439" ItemsPanel="{DynamicResource ItemsPanelTemplate1}" SelectionChanged="caugoc_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Nội Dung" DisplayMemberBinding="{Binding Value}"  />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView x:Name="videos" HorizontalAlignment="Left" ItemsSource="{Binding Videos, Mode=OneWay}"  Margin="469,117,0,19.6" Width="207"  SelectionChanged="Videos_OnSelectionChanged" VerticalContentAlignment="Top">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Tên tập tin" DisplayMemberBinding="{Binding Name}"  />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="btnLoadKinhThanh" Content="Chọn Kinh Thánh" HorizontalAlignment="Left" Margin="427,32,0,0" VerticalAlignment="Top" Width="123" Click="btnLoadKinhThanh_Click" Height="26"/>
+        <Button x:Name="LoadBackGround" Content="Chọn thư mục BG" HorizontalAlignment="Left" Margin="427,69,0,0" VerticalAlignment="Top" Width="123" Click="LoadBackGround_Click" Height="27"/>
+        <Button x:Name="btnCloseApp" Content="Đóng Chương trình" HorizontalAlignment="Left" Margin="576,69,0,0" VerticalAlignment="Top" Width="123" Click="btnCloseApp_Click" Height="27"/>
+        <Button x:Name="btnColor" Content="Cấu hình" HorizontalAlignment="Left" Margin="576,32,0,0" VerticalAlignment="Top" Width="123" Click="btnColor_Click" Height="26"/>
+
+    </Grid>
+</Window>

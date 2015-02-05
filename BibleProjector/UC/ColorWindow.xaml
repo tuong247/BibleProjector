@@ -1,0 +1,41 @@
+﻿<Window x:Class="BibleProjector.UC.ColorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        xmlns:BibleProjector="clr-namespace:BibleProjector"
+        Title="ColorWindow" Height="497.6" Width="360.8">
+    <Grid>
+        <telerik:RadColorPicker x:Name="color1" Foreground="White" HorizontalAlignment="Left" Margin="28,36,0,0" VerticalAlignment="Top" Height="28" Width="84" Click="color1_Click"/>
+        <telerik:RadColorPicker x:Name="color2" Foreground="Yellow"  HorizontalAlignment="Left" Margin="170,36,0,0" VerticalAlignment="Top" Height="28" Width="84" Click="color2_Click"/>
+        <Button Content="Save" Name="btnSave" HorizontalAlignment="Left" Margin="37,293,0,0" VerticalAlignment="Top" Width="75" Height="34" Click="btnSave_Click"/>
+        <Button Content="Close" Name="btnClose" Click="BtnClose_OnClick" HorizontalAlignment="Left" Margin="179,293,0,0" VerticalAlignment="Top" Width="75" Height="34" RenderTransformOrigin="0.619,-0.494"/>
+        <Label Content="Color 1"  HorizontalAlignment="Left" Margin="28,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Color 2" HorizontalAlignment="Left" Margin="170,10,0,0" VerticalAlignment="Top"/>
+        <Label Content="Font" HorizontalAlignment="Left" Margin="28,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.554,3.695"/>
+        <telerik:RadComboBox Name="SelectedFont" SelectedValue="{Binding CurrentFont}"  HorizontalAlignment="Left" Margin="34,115,0,0" VerticalAlignment="Top" Width="250">
+            <telerik:RadComboBoxItem Content="Calibri Light"/>
+            <telerik:RadComboBoxItem Content="Cambria"/>
+            <telerik:RadComboBoxItem Content="Tahoma"/>
+            <telerik:RadComboBoxItem Content="Times New Roman"/>
+            <telerik:RadComboBoxItem Content="Arial"/>
+            <telerik:RadComboBoxItem Content="Comic Sans MS"/>
+            <telerik:RadComboBoxItem Content="Arial Narrow"/>
+            <telerik:RadComboBoxItem Content="Cambria Math"/>
+            <telerik:RadComboBoxItem Content="Minion Pro Cond"/>
+        </telerik:RadComboBox>
+        <Label Content="Size" HorizontalAlignment="Left" Margin="28,142,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.554,3.695"/>
+        <telerik:RadComboBox Name="SelectedFontSize" SelectedValue="{Binding CurrentSize}" HorizontalAlignment="Left" Margin="34,173,0,0" VerticalAlignment="Top" Width="250">
+            <telerik:RadComboBoxItem Content="40"/>
+            <telerik:RadComboBoxItem Content="50"/>
+            <telerik:RadComboBoxItem Content="60"/>
+            <telerik:RadComboBoxItem Content="70"/>
+            <telerik:RadComboBoxItem Content="80"/>
+            <telerik:RadComboBoxItem Content="90"/>
+            <telerik:RadComboBoxItem Content="100"/>
+        </telerik:RadComboBox>
+        <Label Content="Monitor" HorizontalAlignment="Left" Margin="28,211,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.554,3.695" Width="114"/>
+        <telerik:RadComboBox x:Name="rcboMonitor" HorizontalAlignment="Left" Margin="34,242,0,0" VerticalAlignment="Top" Width="250">
+           
+        </telerik:RadComboBox>
+    </Grid>
+</Window>

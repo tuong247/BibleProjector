@@ -1,0 +1,19 @@
+﻿<Window x:Class="BibleProjector.ShowCauGoc"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"  
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" WindowStyle="None" AllowsTransparency="True" WindowStartupLocation="Manual" ShowInTaskbar="False">
+    <Grid >
+        <TextBlock x:Name="tblCauGoc1" FontFamily="Cambria" FontSize="60" TextAlignment="Justify" LineHeight="12" TextWrapping="Wrap" Foreground="White" RenderTransformOrigin="0.5,0.5" ClipToBounds="True" VerticalAlignment="Center" Margin="40,56.4" FontWeight="SemiBold" SnapsToDevicePixels="True" TextOptions.TextFormattingMode="Display">
+            <TextBlock.Effect>
+                <BlurEffect/>
+            </TextBlock.Effect><Span><Run Text="Đức Chúa Trời lại phán rằng: Những nước ở dưới trời phải tụ lại một nơi, và phải có chỗ khô cạn bày ra; thì có như vậy. "/></Span></TextBlock>
+
+
+        <MediaElement x:Name="media"  Source="d:\0000026.avi" Stretch="Fill"   Volume="1" MediaEnded="media_MediaEnded" UnloadedBehavior="Manual"/>
+        <TextBlock x:Name="tblCauGoc" FontFamily="Cambria" FontSize="60" TextAlignment="Justify" LineHeight="12" TextWrapping="Wrap" Foreground="White" RenderTransformOrigin="0.5,0.5" ClipToBounds="True" VerticalAlignment="Center" Margin="40,10" FontWeight="SemiBold" SnapsToDevicePixels="True" TextOptions.TextFormattingMode="Display">
+            <TextBlock.Effect>
+                <DropShadowEffect ShadowDepth="4" BlurRadius="4"/>
+            </TextBlock.Effect><Span><Run Text="Đức Chúa Trời lại phán rằng: Những nước ở dưới trời phải tụ lại một nơi, và phải có chỗ khô cạn bày ra; thì có như vậy. "/></Span></TextBlock>
+
+
+    </Grid>
+</Window>

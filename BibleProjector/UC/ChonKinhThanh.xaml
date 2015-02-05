@@ -1,0 +1,18 @@
+﻿<Window x:Class="BibleProjector.UC.ChonKinhThanh"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
+        Title="ChonKinhThanh" Height="300" Width="300">
+    <Grid Margin="0,0,-6.4,-3.6">
+        <telerik:RadComboBox Name="rcboBible"  HorizontalAlignment="Left" Margin="23,66,0,0" VerticalAlignment="Top" Width="250">
+            <telerik:RadComboBoxItem Content="Vietnamese Bible"/>
+            <telerik:RadComboBoxItem Content="New American Bible"/>
+            <telerik:RadComboBoxItem Content="New American Standard Bible (1995)"/>
+            <telerik:RadComboBoxItem Content="NEW VIETNAMESE BIBLE_2002"/>
+        </telerik:RadComboBox>
+
+        <Button Content="Save" Name="btnSave" HorizontalAlignment="Left" Margin="33,120,0,0" VerticalAlignment="Top" Width="75" Height="34" Click="btnSave_Click"/>
+        <Button Content="Close" Name="btnClose" Click="BtnClose_OnClick" HorizontalAlignment="Left" Margin="175,120,0,0" VerticalAlignment="Top" Width="75" Height="34" RenderTransformOrigin="0.619,-0.494"/>
+        <TextBlock HorizontalAlignment="Left" Margin="29,42,0,0" TextWrapping="Wrap" Text="Chọn kinh thánh" VerticalAlignment="Top"/>
+    </Grid>
+</Window>
