@@ -108,6 +108,8 @@ namespace BibleProjector.Model
 
         public void SetVideos(string path)
         {
+            if (string.IsNullOrEmpty(path))
+                path = Environment.GetFolderPath(Environment.SpecialFolder.CommonPictures); ;
             var dirInfo = new DirectoryInfo(path);
             Videos.Clear();
             var info = dirInfo.GetFiles();
@@ -120,6 +122,7 @@ namespace BibleProjector.Model
 
         public void SetBible(string path)
         {
+            
             _chapterCount.Clear();
             var list = CommonFunction.GetBibleList().ToList();
             foreach (var bibile in list)
