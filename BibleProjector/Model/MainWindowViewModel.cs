@@ -102,8 +102,8 @@ namespace BibleProjector.Model
             AvailableChapter = new ObservableCollection<Chapter>();
             AvailableVerses = new ObservableCollection<Verse>();
             Videos = new ObservableCollection<Video>();
-            SetBible(App.BibileLocation);
-            SetVideos(App.MotionLocation);
+            SetBible(Settings.Default.BibileLocation);
+            SetVideos(Settings.Default.MotionLocation);
         }
 
         public void SetVideos(string path)

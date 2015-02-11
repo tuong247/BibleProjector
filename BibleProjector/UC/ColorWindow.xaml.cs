@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Telerik.Windows.Controls;
 using BibleProjector.Code;
+using setting = BibleProjector.Settings;
 
 namespace BibleProjector.UC
 {
@@ -25,10 +26,12 @@ namespace BibleProjector.UC
         public ColorWindow()
         {
             InitializeComponent();
-            color1.SelectedColor = App.Color1!=null? App.Color1: Colors.White;
-            color2.SelectedColor = App.Color2 != null ? App.Color2 : Colors.Yellow;
-            SelectedFont.SelectedValue = App.CurrentFont;
-            SelectedFontSize.SelectedValue = App.CurrentSize;
+            color1.SelectedColor = CommonFunction.ConvertoMediaColor(setting.Default.Color1);
+            color2.SelectedColor = CommonFunction.ConvertoMediaColor(setting.Default.Color2);
+            bgColor1.SelectedColor = CommonFunction.ConvertoMediaColor(setting.Default.BgColor1);
+            bgColor2.SelectedColor = CommonFunction.ConvertoMediaColor(setting.Default.BgColor2);
+            SelectedFont.SelectedValue =setting.Default.CurrentFont;
+            SelectedFontSize.SelectedValue = setting.Default.CurrentSize;
 
             var screens = Screen.AllScreens;
             foreach (var screen in screens)
@@ -36,29 +39,25 @@ namespace BibleProjector.UC
                 rcboMonitor.Items.Add(new RadComboBoxItem() {Content = screen.DeviceName});
             }
             rcboMonitor.SelectedIndex = screens.Count() - 1;
-
+            setting.Default.CurrentSize = rcboMonitor.SelectedIndex;
+            setting.Default.Save();
         }
 
-        private void color2_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void color1_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+       
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            App.Color1 = color1.SelectedColor;
-            App.Color2 = color2.SelectedColor;
+            setting.Default.Color1 = CommonFunction.ConvertoColor(color1.SelectedColor);
+            setting.Default.Color2 = CommonFunction.ConvertoColor(color2.SelectedColor);
+            setting.Default.BgColor1 = CommonFunction.ConvertoColor(bgColor1.SelectedColor);
+            setting.Default.BgColor2 = CommonFunction.ConvertoColor(bgColor2.SelectedColor);
             if (SelectedFont.SelectedItem != null)
-                App.CurrentFont = SelectedFont.Text;
+                setting.Default.CurrentFont = SelectedFont.Text;
             if (SelectedFontSize.SelectedItem != null)
-                App.CurrentSize = CommonFunction.ConvertInt(SelectedFontSize.Text);
+                setting.Default.CurrentSize = CommonFunction.ConvertInt(SelectedFontSize.Text);
             if (rcboMonitor.SelectedIndex > 0)
-                App.ProjectorScreen = rcboMonitor.SelectedIndex;
+                setting.Default.ProjectorScreen = rcboMonitor.SelectedIndex;
+            setting.Default.Save();
             this.Close();
         }
 

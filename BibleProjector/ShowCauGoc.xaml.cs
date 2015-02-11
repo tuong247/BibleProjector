@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BibleProjector.Code;
+using setting = BibleProjector.Settings;
 
 namespace BibleProjector
 {
@@ -28,13 +30,15 @@ namespace BibleProjector
 
         public void SetCauGoc(string caugoc, bool isShowOtherColor)
         {
-            tblCauGoc.Foreground = isShowOtherColor ? new SolidColorBrush(App.Color2) : new SolidColorBrush(App.Color1);
-            tblCauGoc.FontSize = App.CurrentSize > 0 ? App.CurrentSize : tblCauGoc.FontSize;
-            tblCauGoc.FontFamily = !string.IsNullOrEmpty(App.CurrentFont) ? new FontFamily(App.CurrentFont)  : tblCauGoc.FontFamily;
+
+            tblCauGoc.Foreground = isShowOtherColor ? new SolidColorBrush(CommonFunction.ConvertoMediaColor(setting.Default.Color2)) : new SolidColorBrush(CommonFunction.ConvertoMediaColor(setting.Default.Color1));
+            tblCauGoc.FontSize = setting.Default.CurrentSize > 0 ? setting.Default.CurrentSize : tblCauGoc.FontSize;
+            tblCauGoc.FontFamily = !string.IsNullOrEmpty(setting.Default.CurrentFont) ? new FontFamily(setting.Default.CurrentFont) : tblCauGoc.FontFamily;
             tblCauGoc.Text = caugoc;
-            tblCauGoc1.Foreground = isShowOtherColor ? new SolidColorBrush(App.Color2) : new SolidColorBrush(App.Color1);
-            tblCauGoc1.FontSize = App.CurrentSize > 0 ? App.CurrentSize : tblCauGoc1.FontSize;
-            tblCauGoc1.FontFamily = !string.IsNullOrEmpty(App.CurrentFont) ? new FontFamily(App.CurrentFont) : tblCauGoc1.FontFamily;
+            dropShadow.Color = isShowOtherColor ? CommonFunction.ConvertoMediaColor(setting.Default.BgColor2) : CommonFunction.ConvertoMediaColor(setting.Default.BgColor1);
+            tblCauGoc1.Foreground = isShowOtherColor ? new SolidColorBrush(CommonFunction.ConvertoMediaColor(setting.Default.Color2)) : new SolidColorBrush(CommonFunction.ConvertoMediaColor(setting.Default.Color1));
+            tblCauGoc1.FontSize = setting.Default.CurrentSize > 0 ? setting.Default.CurrentSize : tblCauGoc1.FontSize;
+            tblCauGoc1.FontFamily = !string.IsNullOrEmpty(setting.Default.CurrentFont) ? new FontFamily(setting.Default.CurrentFont) : tblCauGoc1.FontFamily;
             tblCauGoc1.Text = caugoc;
         }
 

@@ -18,22 +18,9 @@ namespace BibleProjector
     public partial class App : Application
     {
 
-        public static System.Windows.Media.Color Color1 { get; set; }
-        public static System.Windows.Media.Color Color2 { get; set; }
-        public static string BibileLocation { get; set; }
-        public static string MotionLocation { get; set; }
-        public static int ProjectorScreen { get; set; }
-        public static string CurrentFont { get; set; }
-        public static int CurrentSize { get; set; }
-
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            BibileLocation = @"data\Vietnamese Bible.xml";
-            MotionLocation =Environment.GetFolderPath(Environment.SpecialFolder.CommonPictures);
-            Color1 = Colors.White;
-            Color2 = Colors.Yellow;
-            var screens = Screen.AllScreens;
-            ProjectorScreen = screens.Count() - 1;
+            //ProjectorScreen = screens.Count() - 1;
         }
 
         private void Application_Activated(object sender, EventArgs e)

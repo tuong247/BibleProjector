@@ -32,7 +32,8 @@ namespace BibleProjector.UC
         {
             string bible = rcboBible.SelectionBoxItem.ToString();
             string data = "data\\" + bible + ".xml";
-            App.BibileLocation = data;
+            Settings.Default.BibileLocation = data;
+            Settings.Default.Save();
             IsChangeData = true;
             this.Close();
         }

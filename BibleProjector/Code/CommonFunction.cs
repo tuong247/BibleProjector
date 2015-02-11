@@ -5,6 +5,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using BibleProjector.Model;
 
 namespace BibleProjector.Code
@@ -86,6 +87,15 @@ namespace BibleProjector.Code
 
         }
 
+        public static System.Windows.Media.Color ConvertoMediaColor(System.Drawing.Color color)
+        {
+            return System.Windows.Media.Color.FromArgb(color.A, color.R, color.G, color.B);
+        }
+
+        public static System.Drawing.Color ConvertoColor(System.Windows.Media.Color color)
+        {
+            return System.Drawing.Color.FromArgb(color.A, color.R, color.G, color.B);
+        }
 
         public static DateTime ConvertDateTime(string str)
         {

@@ -18,6 +18,7 @@ using Telerik.Windows;
 using BibleProjector.Code;
 using BibleProjector.Model;
 using BibleProjector.UC;
+using Application = System.Windows.Application;
 
 namespace BibleProjector
 {
@@ -40,7 +41,7 @@ namespace BibleProjector
         private void btnShow_Click(object sender, RoutedEventArgs e)
         {
             var screens = Screen.AllScreens;
-            SetFormLocation( screens[App.ProjectorScreen]);
+            SetFormLocation( screens[Settings.Default.ProjectorScreen]);
         }
 
         private void btnHide_Click(object sender, RoutedEventArgs e)
@@ -71,6 +72,7 @@ namespace BibleProjector
             }
             showCauGoc.WindowState = WindowState.Normal;
             showCauGoc.Show();
+            caugoc_SelectionChanged(null, null);
         }
 
         private void caugoc_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -117,7 +119,8 @@ namespace BibleProjector
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string result = dialog.SelectedPath;
-                App.MotionLocation = result;
+                Settings.Default.MotionLocation = result;
+                Settings.Default.Save();
                 this.DataContext = new MainWindowViewModel();
                 BibleBooksComboBox.SelectedIndex = 0;
                 cboDoan.SelectedIndex = 0;
@@ -126,7 +129,18 @@ namespace BibleProjector
 
         private void btnCloseApp_Click(object sender, RoutedEventArgs e)
         {
-            App.Current.Shutdown();
+            Application.Current.Shutdown();
+        }
+
+        private void btnShowEffects_Click(object sender, RoutedEventArgs e)
+        {
+            var wdw = new TransitionsWindow();
+            wdw.ShowDialog(); 
+        }
+
+        private void MainWindow_OnClosed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }
