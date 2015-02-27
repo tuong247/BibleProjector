@@ -13,8 +13,8 @@
         <ViewModels:MainWindowViewModel />
     </Window.DataContext>
     <Grid Margin="0,0,0,-0.4" HorizontalAlignment="Left" Width="873">
-        <Button Content="Hiển thị" HorizontalAlignment="Left" Margin="333,34,0,0" VerticalAlignment="Top" Width="73" Click="btnShow_Click" Height="26"/>
-        <Button Content="Ẩn" HorizontalAlignment="Left" Margin="333,72,0,0" VerticalAlignment="Top" Width="73" Click="btnHide_Click" Height="26"/>
+        <Button Content="Hiển thị" HorizontalAlignment="Left" Margin="333,34,0,0" VerticalAlignment="Top" Width="83" Click="btnShow_Click" Height="26"/>
+        <Button Content="Ẩn" HorizontalAlignment="Left" Margin="333,72,0,0" VerticalAlignment="Top" Width="83" Click="btnHide_Click" Height="26"/>
         <ComboBox x:Name="BibleBooksComboBox"  ItemsSource="{Binding Bibles, Mode=OneWay}" SelectedItem="{Binding SelectedBible}" DisplayMemberPath="Book"   SelectedValuePath="Name"  HorizontalAlignment="Left" Margin="73,38,0,0" VerticalAlignment="Top" Width="207" Height="22"/>
         <Label Content="Sách" HorizontalAlignment="Left" Margin="19,35,0,0" VerticalAlignment="Top" Height="26" Width="35"/>
         <ComboBox x:Name="cboDoan" HorizontalAlignment="Left" ItemsSource="{Binding AvailableChapter, Mode=OneWay}" SelectedItem="{Binding SelectedChapter}"  DisplayMemberPath="ChapterId"   SelectedValuePath="ChapterId"    Margin="73,69,0,0" VerticalAlignment="Top" Width="207" Height="22"/>
@@ -34,10 +34,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <Button x:Name="btnLoadKinhThanh" Content="Chọn Kinh Thánh" HorizontalAlignment="Left" Margin="427,32,0,0" VerticalAlignment="Top" Width="123" Click="btnLoadKinhThanh_Click" Height="26"/>
-        <Button x:Name="LoadBackGround" Content="Chọn thư mục BG" HorizontalAlignment="Left" Margin="427,69,0,0" VerticalAlignment="Top" Width="123" Click="LoadBackGround_Click" Height="27"/>
-        <Button x:Name="btnCloseApp" Content="Đóng Chương trình" HorizontalAlignment="Left" Margin="576,69,0,0" VerticalAlignment="Top" Width="123" Click="btnCloseApp_Click" Height="27"/>
-        <Button x:Name="btnColor" Content="Cấu hình" HorizontalAlignment="Left" Margin="576,32,0,0" VerticalAlignment="Top" Width="123" Click="btnColor_Click" Height="26"/>
-        <Button x:Name="btnShowEffects" Content="Show Effects" Margin="714,32,0,0" Click="btnShowEffects_Click" VerticalAlignment="Top" HorizontalAlignment="Left" Width="93"  />
+        <Button x:Name="btnLoadKinhThanh" Content="Chọn Kinh Thánh" HorizontalAlignment="Left" Margin="427,33,0,0" VerticalAlignment="Top" Width="123" Click="btnLoadKinhThanh_Click" Height="27"/>
+        <Button x:Name="btnCloseApp" Content="Thoat" HorizontalAlignment="Left" Margin="571,33,0,0" VerticalAlignment="Top" Width="73" Click="btnCloseApp_Click" Height="27"/>
+        <Button x:Name="btnColor" Content="Cấu hình" HorizontalAlignment="Left" Margin="427,71,0,0" VerticalAlignment="Top" Width="123" Click="btnColor_Click" Height="27"/>
     </Grid>
 </Window>

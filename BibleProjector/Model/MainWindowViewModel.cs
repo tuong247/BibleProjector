@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using BibleProjector.Code;
+using System.Windows.Forms;
 
 namespace BibleProjector.Model
 {
@@ -108,8 +109,10 @@ namespace BibleProjector.Model
 
         public void SetVideos(string path)
         {
+            //if (string.IsNullOrEmpty(path))
+            //    path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData); ;
             if (string.IsNullOrEmpty(path))
-                path = Environment.GetFolderPath(Environment.SpecialFolder.CommonPictures); ;
+                path = Path.Combine(Application.StartupPath, "Images");
             var dirInfo = new DirectoryInfo(path);
             Videos.Clear();
             var info = dirInfo.GetFiles();
