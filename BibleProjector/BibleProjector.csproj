@@ -84,6 +84,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Code\BookInfo.cs" />
+    <Compile Include="Code\ChapterInfo.cs" />
+    <Compile Include="Code\Font.cs" />
+    <Compile Include="Code\FontMetrics.cs" />
+    <Compile Include="Code\IPageProvider.cs" />
+    <Compile Include="Code\PageInfo.cs" />
+    <Compile Include="Code\PageProvider.cs" />
+    <Compile Include="Code\PageTransition.cs" />
+    <Compile Include="Code\ParagraphInfo.cs" />
+    <Compile Include="Code\SlideTransition.cs" />
+    <Compile Include="Code\WordInfo.cs" />
     <Compile Include="Model\Bible.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Code\CommonFunction.cs" />
@@ -94,23 +105,26 @@
     <Compile Include="Model\ViewModel.cs" />
     <Compile Include="MousePositionAttachedBehavior.cs" />
     <Compile Include="Properties\Annotations.cs" />
-    <Compile Include="Settings1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
     <Compile Include="ShowCauGoc.xaml.cs">
       <DependentUpon>ShowCauGoc.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TestPage.xaml.cs">
+      <DependentUpon>TestPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="TransitionsWindow.xaml.cs">
       <DependentUpon>TransitionsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TuongPageProvider.cs" />
     <Compile Include="UC\ChonKinhThanh.xaml.cs">
       <DependentUpon>ChonKinhThanh.xaml</DependentUpon>
     </Compile>
     <Compile Include="UC\ColorWindow.xaml.cs">
       <DependentUpon>ColorWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UC\ViewerControl.xaml.cs">
+      <DependentUpon>ViewerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserPreferences.cs" />
     <Compile Include="ViewModel.cs" />
     <Compile Include="ViewObjects.cs" />
     <Page Include="MainWindow.xaml">
@@ -133,6 +147,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="TestPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="TransitionsWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -142,6 +160,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UC\ColorWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC\ViewerControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -170,10 +192,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Settings.settings">
-      <Generator>PublicSettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -186,6 +204,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\NEW VIETNAMESE BIBLE_2002.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Data\pg18000.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Data\Vietnamese Bible.xml">

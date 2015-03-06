@@ -15,8 +15,8 @@ using System.Windows.Shapes;
 using System.Windows.Threading;
 using BibleProjector.Code;
 using BibleProjector.Model;
+using BibleProjector.Properties;
 using TransitionEffects;
-using setting = BibleProjector.Settings;
 
 namespace BibleProjector
 {
@@ -147,14 +147,14 @@ namespace BibleProjector
         public void SetCauGoc(string caugoc, bool isShowOtherColor)
         {
 
-            tblCauGoc.Foreground = isShowOtherColor ? new SolidColorBrush(CommonFunction.ConvertoMediaColor(setting.Default.Color2)) : new SolidColorBrush(CommonFunction.ConvertoMediaColor(setting.Default.Color1));
-            tblCauGoc.FontSize = setting.Default.CurrentSize > 0 ? setting.Default.CurrentSize : tblCauGoc.FontSize;
-            tblCauGoc.FontFamily = !string.IsNullOrEmpty(setting.Default.CurrentFont) ? new FontFamily(setting.Default.CurrentFont) : tblCauGoc.FontFamily;
+            tblCauGoc.Foreground = isShowOtherColor ? new SolidColorBrush(CommonFunction.ConvertoMediaColor(Settings.Default.Color2)) : new SolidColorBrush(CommonFunction.ConvertoMediaColor(Settings.Default.Color1));
+            tblCauGoc.FontSize = Settings.Default.CurrentSize > 0 ? Settings.Default.CurrentSize : tblCauGoc.FontSize;
+            tblCauGoc.FontFamily = !string.IsNullOrEmpty(Settings.Default.CurrentFont) ? new FontFamily(Settings.Default.CurrentFont) : tblCauGoc.FontFamily;
             tblCauGoc.Text = caugoc;
-            dropShadow.Color = isShowOtherColor ? CommonFunction.ConvertoMediaColor(setting.Default.BgColor2) : CommonFunction.ConvertoMediaColor(setting.Default.BgColor1);
-            tblCauGoc1.Foreground = isShowOtherColor ? new SolidColorBrush(CommonFunction.ConvertoMediaColor(setting.Default.Color2)) : new SolidColorBrush(CommonFunction.ConvertoMediaColor(setting.Default.Color1));
-            tblCauGoc1.FontSize = setting.Default.CurrentSize > 0 ? setting.Default.CurrentSize : tblCauGoc1.FontSize;
-            tblCauGoc1.FontFamily = !string.IsNullOrEmpty(setting.Default.CurrentFont) ? new FontFamily(setting.Default.CurrentFont) : tblCauGoc1.FontFamily;
+            dropShadow.Color = isShowOtherColor ? CommonFunction.ConvertoMediaColor(Settings.Default.BgColor2) : CommonFunction.ConvertoMediaColor(Settings.Default.BgColor1);
+            tblCauGoc1.Foreground = isShowOtherColor ? new SolidColorBrush(CommonFunction.ConvertoMediaColor(Settings.Default.Color2)) : new SolidColorBrush(CommonFunction.ConvertoMediaColor(Settings.Default.Color1));
+            tblCauGoc1.FontSize = Settings.Default.CurrentSize > 0 ? Settings.Default.CurrentSize : tblCauGoc1.FontSize;
+            tblCauGoc1.FontFamily = !string.IsNullOrEmpty(Settings.Default.CurrentFont) ? new FontFamily(Settings.Default.CurrentFont) : tblCauGoc1.FontFamily;
             tblCauGoc1.Text = caugoc;
         }
 

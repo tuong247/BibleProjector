@@ -37,5 +37,6 @@
         <Button x:Name="btnLoadKinhThanh" Content="Chọn Kinh Thánh" HorizontalAlignment="Left" Margin="427,33,0,0" VerticalAlignment="Top" Width="123" Click="btnLoadKinhThanh_Click" Height="27"/>
         <Button x:Name="btnCloseApp" Content="Thoat" HorizontalAlignment="Left" Margin="571,33,0,0" VerticalAlignment="Top" Width="73" Click="btnCloseApp_Click" Height="27"/>
         <Button x:Name="btnColor" Content="Cấu hình" HorizontalAlignment="Left" Margin="427,71,0,0" VerticalAlignment="Top" Width="123" Click="btnColor_Click" Height="27"/>
+        <Button x:Name="btnCloseApp_Copy" Content="Test Ebook" HorizontalAlignment="Left" Margin="582,70,0,0" VerticalAlignment="Top" Width="73" Click="btnCloseApp_Copy_Click" Height="27"/>
     </Grid>
 </Window>

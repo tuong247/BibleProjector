@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Xml;
 using BibleProjector.Code;
 using System.Windows.Forms;
+using BibleProjector.Properties;
 
 namespace BibleProjector.Model
 {
@@ -48,9 +49,9 @@ namespace BibleProjector.Model
                     AvailableChapter.Clear();
                     int totalchapter;
                     _chapterCount.TryGetValue(value.Name,out totalchapter);
-                    for (var i = 1; i < totalchapter; i++)
+                    for (var i = 0; i < totalchapter; i++)
                     {
-                        AvailableChapter.Add(new Chapter(){ChapterId = i});
+                        AvailableChapter.Add(new Chapter(){ChapterId = i+1});
                     }
                    
                 }
@@ -104,7 +105,7 @@ namespace BibleProjector.Model
             AvailableVerses = new ObservableCollection<Verse>();
             Videos = new ObservableCollection<Video>();
             SetBible(Settings.Default.BibileLocation);
-            SetVideos(Settings.Default.MotionLocation);
+            SetVideos("Images");
         }
 
         public void SetVideos(string path)

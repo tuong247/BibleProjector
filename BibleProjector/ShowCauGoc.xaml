@@ -6,12 +6,8 @@
             <TextBlock.Effect>
                 <BlurEffect/>
             </TextBlock.Effect><Span><Run Text=""/></Span></TextBlock>
-
-
         <MediaElement x:Name="oldChild"  Source="" Stretch="Fill"  Opacity="1"  Volume="1" MediaEnded="media_MediaEnded" UnloadedBehavior="Manual"/>
         <MediaElement x:Name="currentChild"  Source="" Stretch="Fill"   Volume="1" MediaEnded="media_MediaEnded" UnloadedBehavior="Manual"/>
-        <!--<Image x:Name="oldChild"  Stretch="UniformToFill" Opacity="1"  />
-        <Image x:Name="currentChild" Stretch="UniformToFill"/>-->
         <TextBlock x:Name="tblCauGoc" FontFamily="Cambria" FontSize="60" TextAlignment="Justify" LineHeight="12" TextWrapping="Wrap" Foreground="White" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Center" Margin="40,10" FontWeight="SemiBold" SnapsToDevicePixels="True" TextOptions.TextFormattingMode="Display">
             <TextBlock.Effect>
                 <DropShadowEffect x:Name="dropShadow" ShadowDepth="2" BlurRadius="4"/>

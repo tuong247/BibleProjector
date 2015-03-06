@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
+using BibleProjector.Properties;
 using Telerik.Windows;
 using BibleProjector.Code;
 using BibleProjector.Model;
@@ -119,7 +120,7 @@ namespace BibleProjector
             if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 string result = dialog.SelectedPath;
-                Settings.Default.MotionLocation = result;
+                //Settings.Default.MotionLocation = result;
                 Settings.Default.Save();
                 this.DataContext = new MainWindowViewModel();
                 BibleBooksComboBox.SelectedIndex = 0;
@@ -141,6 +142,12 @@ namespace BibleProjector
         private void MainWindow_OnClosed(object sender, EventArgs e)
         {
             Application.Current.Shutdown();
+        }
+
+        private void btnCloseApp_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            var wdw = new TestPage();
+            wdw.ShowDialog();
         }
     }
 }
