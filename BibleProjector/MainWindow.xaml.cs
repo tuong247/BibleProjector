@@ -30,7 +30,11 @@ namespace BibleProjector
     {
         readonly Dictionary<string, int> _chapterCount = new Dictionary<string, int>();
         readonly XmlDocument _xmldoc = new XmlDocument();
+        int currentBook { get; set; }
+        int currentChapter { get; set; }
         ShowCauGoc showCauGoc = new ShowCauGoc();
+        private  ColorWindow colorwindows ;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -83,6 +87,7 @@ namespace BibleProjector
             {
                 bool isShowOtherColor = CommonFunction.ConvertInt(item.Id)%2 == 0;
                 showCauGoc.SetCauGoc(item.Value, isShowOtherColor);
+              
             }
         }
 
@@ -94,38 +99,32 @@ namespace BibleProjector
 
         private void btnColor_Click(object sender, RoutedEventArgs e)
         {
-            var colorwindows = new ColorWindow();
-            colorwindows.Show();
-        }
-
-        private void btnLoadKinhThanh_Click(object sender, RoutedEventArgs e)
-        {
-            var frm = new ChonKinhThanh();
-            frm.Show();
-            frm.Closed += frm_Closed;
-        }
-
-        void frm_Closed(object sender, EventArgs e)
-        {
-            var isChange = (sender as ChonKinhThanh).IsChangeData;
-            if (!isChange) return;
-            this.DataContext = new MainWindowViewModel();
-            BibleBooksComboBox.SelectedIndex = 0;
-            cboDoan.SelectedIndex = 0;
-        }
-
-        private void LoadBackGround_Click(object sender, RoutedEventArgs e)
-        {
-            var dialog = new System.Windows.Forms.FolderBrowserDialog();
-            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (colorwindows == null)
             {
-                string result = dialog.SelectedPath;
-                //Settings.Default.MotionLocation = result;
-                Settings.Default.Save();
-                this.DataContext = new MainWindowViewModel();
-                BibleBooksComboBox.SelectedIndex = 0;
-                cboDoan.SelectedIndex = 0;
+                colorwindows = new ColorWindow();
+                colorwindows.Show();
+                colorwindows.Closed += colorwindows_Closed;
             }
+            else
+            {
+
+                colorwindows.Show();
+            }
+           
+        }
+
+        void colorwindows_Closed(object sender, EventArgs e)
+        {
+            colorwindows = null;
+            var isChange = (sender as ColorWindow).IsChangeData;
+            if (!isChange) return;
+            var dataContext = (MainWindowViewModel)this.DataContext;
+            var userPrefs = new UserPreferences();
+            dataContext.SetBible(userPrefs.BibileLocation);
+            
+
+            //BibleBooksComboBox.SelectedIndex = BibleBooksComboBox.SelectedIndex;
+            //cboDoan.SelectedIndex = cboDoan.SelectedIndex;
         }
 
         private void btnCloseApp_Click(object sender, RoutedEventArgs e)
@@ -133,21 +132,13 @@ namespace BibleProjector
             Application.Current.Shutdown();
         }
 
-        private void btnShowEffects_Click(object sender, RoutedEventArgs e)
-        {
-            var wdw = new TransitionsWindow();
-            wdw.ShowDialog(); 
-        }
+       
 
         private void MainWindow_OnClosed(object sender, EventArgs e)
         {
             Application.Current.Shutdown();
         }
 
-        private void btnCloseApp_Copy_Click(object sender, RoutedEventArgs e)
-        {
-            var wdw = new TestPage();
-            wdw.ShowDialog();
-        }
+      
     }
 }

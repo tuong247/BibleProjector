@@ -4,7 +4,7 @@
         xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation"
         Title="ChonKinhThanh" Height="300" Width="300">
     <Grid Margin="0,0,-6.4,-3.6">
-        <telerik:RadComboBox Name="rcboBible"  HorizontalAlignment="Left" Margin="23,66,0,0" VerticalAlignment="Top" Width="250">
+        <telerik:RadComboBox Name="rcboBible"  HorizontalAlignment="Left" Margin="136,36,0,0" VerticalAlignment="Top" Width="140">
             <telerik:RadComboBoxItem Content="Vietnamese Bible"/>
             <telerik:RadComboBoxItem Content="New American Bible"/>
             <telerik:RadComboBoxItem Content="New American Standard Bible (1995)"/>

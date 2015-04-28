@@ -23,6 +23,9 @@ namespace BibleProjector.UC
     /// </summary>
     public partial class ColorWindow : Window
     {
+        public bool IsChangeData { get; set; }
+        string currentBible { get; set; }
+
         public ColorWindow()
         {
             InitializeComponent();
@@ -33,19 +36,32 @@ namespace BibleProjector.UC
             bgColor2.SelectedColor = CommonFunction.ConvertoMediaColor(userPrefs.BgColor2);
             SelectedFont.Text = userPrefs.CurrentFont;
             SelectedFontSize.Text = userPrefs.CurrentSize.ToString();
+            if (!string.IsNullOrEmpty(userPrefs.BibileLocation))
+            {
+                //data\\" + bible + ".xml
+                string location = userPrefs.BibileLocation.Replace("data\\", "").Replace(".xml","");
+                currentBible = location;
+                rcboBible.Text = location;    
 
+            }
             var screens = Screen.AllScreens;
             foreach (var screen in screens)
             {
                 rcboMonitor.Items.Add(new RadComboBoxItem() {Content = screen.DeviceName});
             }
-            rcboMonitor.SelectedIndex = screens.Count() - 1;
+            if (userPrefs.ProjectorScreen > screens.Count())
+                rcboMonitor.SelectedIndex = screens.Count() - 1;
+            else
+            {
+                rcboMonitor.SelectedIndex = userPrefs.ProjectorScreen >= 0 ? userPrefs.ProjectorScreen : screens.Count() - 1;
+            }
         }
 
        
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+          
             var userPrefs = new UserPreferences
             {
                 Color1 = CommonFunction.ConvertoColor(color1.SelectedColor),
@@ -57,8 +73,20 @@ namespace BibleProjector.UC
                 userPrefs.CurrentFont = SelectedFont.Text;
             if (SelectedFontSize.SelectedItem != null)
                 userPrefs.CurrentSize = CommonFunction.ConvertInt(SelectedFontSize.Text);
-            if (rcboMonitor.SelectedIndex > 0)
+            if (rcboMonitor.SelectedIndex >= 0)
                 userPrefs.ProjectorScreen = rcboMonitor.SelectedIndex;
+            if (rcboBible.SelectedIndex >= 0)
+            {
+                var bible = rcboBible.SelectionBoxItem.ToString();
+                if (currentBible != bible)
+                {
+                    var data = "data\\" + bible + ".xml";
+                    userPrefs.BibileLocation = data;
+                    IsChangeData = true;
+                }
+
+            }
+                
             userPrefs.Save();
             this.Close();
         }
@@ -66,6 +94,12 @@ namespace BibleProjector.UC
         private void BtnClose_OnClick(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+       
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }

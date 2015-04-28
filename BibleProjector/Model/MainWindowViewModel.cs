@@ -104,14 +104,13 @@ namespace BibleProjector.Model
             AvailableChapter = new ObservableCollection<Chapter>();
             AvailableVerses = new ObservableCollection<Verse>();
             Videos = new ObservableCollection<Video>();
-            SetBible(Settings.Default.BibileLocation);
+            var userPrefs = new UserPreferences();
+            SetBible(userPrefs.BibileLocation);
             SetVideos("Images");
         }
 
         public void SetVideos(string path)
         {
-            //if (string.IsNullOrEmpty(path))
-            //    path = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData); ;
             if (string.IsNullOrEmpty(path))
                 path = Path.Combine(Application.StartupPath, "Images");
             var dirInfo = new DirectoryInfo(path);
@@ -152,8 +151,8 @@ namespace BibleProjector.Model
                     if (xmlnode.Attributes != null)
                         _chapterCount.Add(xmlnode.Attributes.GetNamedItem("bname").Value, xmlNodeList.Count);
                 }
-            
-          
+            SelectedChapter = selectedChapter;
+
         }
 
         #endregion
